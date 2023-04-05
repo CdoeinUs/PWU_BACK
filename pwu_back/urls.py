@@ -24,6 +24,5 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('api/admin/', include('Admin.urls')),
     path('api-auth/', include('rest_framework.urls')),
-    path('api/accounts/', include('allauth.urls')),
-    path('api/accounts/confirm-email/<str:key>/', confirm_email, name='account_confirm_email'),
+    path('api/accounts/',include('Accounts.urls')),
 ]

@@ -38,14 +38,21 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    #allaouth
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    #REST
+    'dj_rest_auth',
+    'dj_rest_auth.registration',
     'rest_framework',
+    'rest_framework.authtoken',
+    #APP
     'Admin',
     'Feed',
-    'User',
+    'Accounts',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -135,4 +142,10 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 SITE_ID = 1
-ACCOUNT_ADAPTER = 'myapp.adapter.MyAccountAdapter'
+AUTH_USER_MODEL = 'Accounts.User'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
