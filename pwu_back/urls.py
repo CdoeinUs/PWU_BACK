@@ -16,7 +16,6 @@ Including another URLconf
 from django.urls import include, path
 from django.contrib import admin
 from rest_framework import routers
-from allauth.account.views import confirm_email
 
 router = routers.DefaultRouter()
 urlpatterns = [
@@ -24,5 +23,5 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('api/admin/', include('Admin.urls')),
     path('api-auth/', include('rest_framework.urls')),
-    path('api/accounts/',include('Accounts.urls')),
+    path('api/account/',include('Account.urls')),
 ]
