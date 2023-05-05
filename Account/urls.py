@@ -1,6 +1,6 @@
 from django.urls import path, include
 from django.views.generic import TemplateView
-from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token, verify_jwt_token
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
 from dj_rest_auth.views import (
     LoginView, LogoutView, PasswordChangeView,
     PasswordResetView, PasswordResetConfirmView
@@ -38,11 +38,11 @@ urlpatterns = [
     # social login
     path('registration/', CustomRegisterView.as_view(), name='custom_register'),
     # jwt 토큰 발급
-    path('api-token-auth/', obtain_jwt_token),
+    path('api-token-auth/', TokenObtainPairView.as_view()),
     # jwt 토큰 갱신
-    path('api-token-refresh/', refresh_jwt_token),
+    path('api-token-refresh/', TokenRefreshView.as_view()),
     # jwt 토큰 검증
-    path('api-token-verify/', verify_jwt_token),
+    path('api-token-verify/', TokenVerifyView.as_view()),
     # swagger
     path('swagger/', TemplateView.as_view(template_name='swagger.html')),
 ]

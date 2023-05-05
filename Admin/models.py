@@ -15,9 +15,8 @@ class Liquor(models.Model):
         ('whisky','위스키'),
     ]
     name = models.CharField(max_length=20)
-    proof = models.IntegerField(max_length=100)
-    image = models.ImageField()
-    detail = models.CharField(max_length=20)
+    proof = models.IntegerField()
+    image = models.ImageField(("image") , blank=True, height_field=None, width_field=None, max_length=None)  
     type = models.CharField(choices=TYPE_CHOICES,max_length=20)
     country = models.CharField(choices=CASE_CHOICES, max_length=20)
     amount = models.IntegerField()
@@ -26,12 +25,18 @@ class Liquor(models.Model):
     reviews = models.IntegerField()
     #likes = 
 
-class Cocktail(models.Model):
+class Cocktail(models.Model):    
+    TYPE_CHOICES=[
+        ('Whisky','위스키'),
+        ('Bodka','보드카'),
+        ('Gin','진'),        
+        ('Rum','럼'),
+        ('Tequila','데킬라'),
+    ]
     name = models.CharField(max_length=20)
-    create = models.DateField()
-    proof = models.IntegerField(max_length=100)
-    detail = models.TextField()
-    image = models.ImageField()
+    image = models.ImageField(max_length=None)
+    detail = models.TextField(max_length=200)
+    base = models.CharField(choices=TYPE_CHOICES, max_length=20,default=0)
     #elements = models.ForeignKey()
     #likes = 
     
