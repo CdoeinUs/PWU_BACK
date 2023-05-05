@@ -21,7 +21,7 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), name='rest_logout'),
     # 비밀번호 변경
     path('password/change/', PasswordChangeView.as_view(), name='rest_password_change'),
-    # 비밀번호 초기화
+    # 비밀번호 초기화ss
     path('password/reset/', PasswordResetView.as_view(), name='rest_password_reset'),
     path('password/reset/confirm/', PasswordResetConfirmView.as_view(), name='rest_password_reset_confirm'),
     # 회원가입
